@@ -1,0 +1,6 @@
+power <- read.delim("household_power_consumption.txt", sep = ";", header = T, stringsAsFactors = F)
+pdata <- subset(power, power$Date=="1/2/2007" | power$Date=="2/2/2007" )
+png(filename = "Plot1.png", width = 480, height = 480)
+hist(as.numeric(pdata$Global_active_power), main = "Global Active Power", xlab = "Global Active Power(kilowatts)", col = "red")
+axis(side=2, at=seq(0, 1200, by=200))
+dev.off()
